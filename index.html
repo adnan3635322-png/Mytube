@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTube</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Login / Signup Screen -->
+  <section class="auth-screen" id="auth-screen">
+    <div class="auth-art">
+      <a href="#" class="brand light">mytube<span>.</span></a>
+
+      <div class="auth-art-copy">
+        <p>WATCH. DISCOVER. ENJOY.</p>
+        <h1>Your next favorite video is waiting.</h1>
+      </div>
+
+      <div class="play-shape">▶</div>
+    </div>
+
+    <div class="auth-panel">
+      <div class="auth-card">
+        <p class="eyebrow" id="form-eyebrow">WELCOME BACK</p>
+        <h2 id="form-title">Sign in to MyTube</h2>
+        <p class="form-description" id="form-description">
+          Enter your details to continue watching.
+        </p>
+
+        <form id="auth-form" novalidate>
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="you@example.com" required>
+          <p class="field-error" id="email-error"></p>
+
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input id="password" type="password" placeholder="At least 6 characters" required>
+            <button id="toggle-password" type="button">Show</button>
+          </div>
+          <p class="field-error" id="password-error"></p>
+
+          <div class="form-row">
+            <label class="remember">
+              <input type="checkbox">
+              <span></span>
+              Remember me
+            </label>
+
+            <a href="#" id="forgot-link">Forgot password?</a>
+          </div>
+
+          <button class="primary-button" id="submit-button" type="submit">
+            Sign in <span>→</span>
+          </button>
+
+          <p class="form-message" id="form-message"></p>
+        </form>
+
+        <div class="divider">
+          <span>or continue with</span>
+        </div>
+
+        <div class="social-row">
+          <button class="social-button" data-provider="Google" type="button">
+            <b>G</b> Google
+          </button>
+
+          <button class="social-button" data-provider="Apple" type="button">
+            <b>●</b> Apple
+          </button>
+        </div>
+
+        <p class="switch-form" id="switch-text">
+          New to MyTube?
+          <a href="#" id="switch-link">Create an account</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section class="app" id="app" hidden>
+    <header class="topbar">
+      <button class="icon-button" id="menu-button">☰</button>
+
+      <a href="#" class="brand">mytube<span>.</span></a>
+
+      <form class="search" id="search-form">
+        <input id="search-input" type="search" placeholder="Search videos">
+        <button type="submit">⌕</button>
+      </form>
+
+      <div class="top-actions">
+        <button class="create-button" id="create-button">＋ <span>Create</span></button>
+        <button class="icon-button" id="notification-button">♧<i></i></button>
+        <button class="avatar" id="profile-button">A</button>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <a class="nav-item active" href="#" data-page="Home"><span>⌂</span> Home</a>
+      <a class="nav-item" href="#" data-page="Shorts"><span>▷</span> Shorts</a>
+      <a class="nav-item" href="#" data-page="Subscriptions"><span>▣</span> Subscriptions</a>
+
+      <hr>
+
+      <a class="nav-item" href="#" data-page="Library"><span>▤</span> Library</a>
+      <a class="nav-item" href="#" data-page="History"><span>◷</span> History</a>
+      <a class="nav-item" href="#" data-page="Liked videos"><span>♡</span> Liked videos</a>
+    </aside>
+
+    <main class="content">
+      <section class="hero">
+        <div>
+          <p class="kicker">GOOD AFTERNOON</p>
+          <h1>Find your next favorite.</h1>
+          <p>Fresh videos picked for your curiosity.</p>
+        </div>
+
+        <button class="watch-button" id="watch-featured">
+          Watch featured <span>→</span>
+        </button>
+      </section>
+
+      <div class="chips">
+        <button class="chip active" data-category="All">All</button>
+        <button class="chip" data-category="Design">Design</button>
+        <button class="chip" data-category="Music">Music</button>
+        <button class="chip" data-category="Technology">Technology</button>
+        <button class="chip" data-category="Travel">Travel</button>
+        <button class="chip" data-category="Gaming">Gaming</button>
+      </div>
+
+      <div class="section-heading">
+        <h2>Recommended for you</h2>
+        <button id="show-all">Show all</button>
+      </div>
+
+      <section class="video-grid" id="video-grid"></section>
+      <p class="empty-state" id="empty-state" hidden>No videos found.</p>
+    </main>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
